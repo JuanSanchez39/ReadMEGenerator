@@ -59,10 +59,31 @@ const questions = [
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(`README.md generated!`);
+      }
+    });
+  }
+  
 
 // TODO: Create a function to initialize app
-function init() { }
+function init() {   console.log(`
+=================
+Welcome to the README Generator! 
+Please input the following information!
+=================
+`);
+
+inquirer.prompt(questions)
+    .then(readmeData => {
+        // console.log(readmeData);
+        writeToFile("./gen/readme.md", generateMarkdown(readmeData))
+    })
+}; 
 
 // Function call to initialize app
 init();
