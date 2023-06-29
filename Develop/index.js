@@ -2,7 +2,7 @@
 
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -71,12 +71,7 @@ function writeToFile(fileName, data) {
   
 
 // TODO: Create a function to initialize app
-function init() {   console.log(`
-=================
-Welcome to the README Generator! 
-Please input the following information!
-=================
-`);
+function init() { console.log(` Welcome to the README Generator!  Please input the following information!`);
 
 inquirer.prompt(questions)
     .then(readmeData => {
