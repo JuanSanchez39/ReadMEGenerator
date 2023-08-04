@@ -41,7 +41,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Choose a license for your project:',
-        choices: ['MIT', '', '', '', 'None'],
+        choices: ['MIT', 'Apache 2.0', 'None'],
     },
     {
         type: 'input',
@@ -77,7 +77,7 @@ function init() {
     inquirer.prompt(questions)
         .then(readmeData => {
             // console.log(readmeData);
-            writeToFile("./gen/readme.md", generateMarkdown(readmeData))
+            writeToFile("./Gen/README.md", generateMarkdown(readmeData))
         })
 };
 
